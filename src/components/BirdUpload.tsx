@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Image as ImageIcon, Plus } from 'lucide-react';
+import Image from 'next/image';
 
 interface BirdSuggestion {
   name: string;
@@ -306,7 +307,17 @@ const BirdUpload: React.FC = () => {
             loading ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
-          {loading ? 'Uploading...' : 'Upload Bird'}
+          {loading ? (
+            <Image
+              src="/pink-bird-bird.gif"
+              alt="Loading..."
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          ) : (
+            'Upload Bird'
+          )}
         </button>
       </form>
     </div>

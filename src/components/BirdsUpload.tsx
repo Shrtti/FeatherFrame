@@ -3,6 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Upload, Camera, MapPin } from "lucide-react";
+import Image from "next/image";
 
 interface BirdFormData {
   name: string;
@@ -259,9 +260,19 @@ export default function BirdUpload() {
         <button
           type="submit"
           disabled={uploading || !selectedFile}
-          className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+          className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 flex justify-center items-center"
         >
-          {uploading ? "Uploading..." : "Upload Bird Photo"}
+          {uploading ? (
+            <Image
+              src="/pink-bird-bird.gif"
+              alt="Loading..."
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          ) : (
+            "Upload Bird Photo"
+          )}
         </button>
       </form>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Bird } from 'lucide-react';
+import Image from 'next/image';
 
 interface BirdData {
   _id: string;
@@ -130,7 +131,13 @@ const BirdGallery: React.FC = () => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+          <Image
+            src="/pink-bird-bird.gif"
+            alt="Loading..."
+            width={120}
+            height={120}
+            className="rounded-full"
+          />
         </div>
       ) : error ? (
         <div className="text-red-500 text-center">{error}</div>
